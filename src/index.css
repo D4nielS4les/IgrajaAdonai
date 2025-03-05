@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-800 font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+/* Print styles for membership card */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  #root > header,
+  #root > footer,
+  .no-print {
+    display: none !important;
+  }
+  
+  #root > main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  [ref="cardRef"],
+  [ref="cardRef"] * {
+    visibility: visible;
+  }
+  
+  [ref="cardRef"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
